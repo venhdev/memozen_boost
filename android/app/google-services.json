@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "159905842611",
+    "project_id": "memozen-boost",
+    "storage_bucket": "memozen-boost.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:159905842611:android:20731db6550e2e3db837c6",
+        "android_client_info": {
+          "package_name": "vn.memozen.boost"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGIpYLNepwJkPhbwZudZ_iVqn3Fr7j_qQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
