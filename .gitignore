@@ -44,4 +44,9 @@ app.*.map.json
 
 # Private key
 firebase_options.dart
-.env
+/.env
+
+# Generated files
+*.g.dart
+*.env
+*.env.g.dart

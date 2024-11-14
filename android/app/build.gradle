@@ -8,6 +8,19 @@ plugins {
     id "dev.flutter.flutter-gradle-plugin"
 }
 
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+def adminKeystoreProperties = new Properties()
+def adminKeystorePropertiesFile = rootProject.file('admin-key.properties')
+if (adminKeystorePropertiesFile.exists()) {
+    adminKeystoreProperties.load(new FileInputStream(adminKeystorePropertiesFile))
+}
+
+
 android {
     namespace = "vn.memozen.boost"
     compileSdk = flutter.compileSdkVersion
@@ -23,21 +36,79 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId = "vn.memozen.boost"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
+        minSdk = 23 // flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
 
+    signingConfigs {
+        release {
+            keyAlias = keystoreProperties['keyAlias']
+            keyPassword = keystoreProperties['keyPassword']
+            storeFile = keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+            storePassword = keystoreProperties['storePassword']
+        }
+        
+        adminRelease {
+            keyAlias = adminKeystoreProperties['keyAlias']
+            keyPassword = adminKeystoreProperties['keyPassword']
+            storeFile = adminKeystoreProperties['storeFile'] ? file(adminKeystoreProperties['storeFile']) : null
+            storePassword = adminKeystoreProperties['storePassword']
+        }
+    }
+
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.debug
+            signingConfig = signingConfigs.release
+        }
+    }
+
+    flavorDimensions "default"
+    productFlavors {
+        development {
+            dimension "default"
+            // resValue "string", "app_name", "[dev] Memozen Boost"
+            manifestPlaceholders = [appName: "[dev] Memozen Boost"]
+            signingConfig signingConfigs.debug
+            applicationIdSuffix ".dev"
+        }
+
+        staging {
+            dimension "default"
+            manifestPlaceholders = [appName: "[stg] Memozen Boost"]
+            signingConfig signingConfigs.release
+            applicationIdSuffix ".stg"
+        }
+
+        production {
+            dimension "default"
+            manifestPlaceholders = [appName: "Memozen Boost"]
+            signingConfig signingConfigs.release
+        }
+
+        admin_development {
+            dimension "default"
+            manifestPlaceholders = [appName: "[dev] Memozen Admin"]
+            signingConfig signingConfigs.debug
+            applicationIdSuffix ".admin.dev"
+        }
+
+        admin_staging {
+            dimension "default"
+            manifestPlaceholders = [appName: "[stg] Memozen Admin"]
+            signingConfig signingConfigs.adminRelease
+            applicationIdSuffix ".admin.stg"
+        }
+
+        admin_production {
+            dimension "default"
+            manifestPlaceholders = [appName: "Memozen Admin"]
+            signingConfig signingConfigs.adminRelease
+            applicationIdSuffix ".admin"
         }
     }
 }
