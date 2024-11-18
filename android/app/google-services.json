@@ -12,7 +12,12 @@
           "package_name": "vn.memozen.boost"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "159905842611-lkrio3k8n5efjut6po3t8slup615qjgm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDGIpYLNepwJkPhbwZudZ_iVqn3Fr7j_qQ"
@@ -20,7 +25,63 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "159905842611-lkrio3k8n5efjut6po3t8slup615qjgm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "159905842611-o6ng3i2tjicdou5m0fuok867dv7ajuh8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "vn.memozen.boost"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:159905842611:android:652dc9ff42615145b837c6",
+        "android_client_info": {
+          "package_name": "vn.memozen.boost.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "159905842611-qlamq8h6b04ps3tlmiq0vs9bnri3n6n5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "vn.memozen.boost.dev",
+            "certificate_hash": "6c07a10843ae791f4d619d0c773af10a12a446dd"
+          }
+        },
+        {
+          "client_id": "159905842611-lkrio3k8n5efjut6po3t8slup615qjgm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGIpYLNepwJkPhbwZudZ_iVqn3Fr7j_qQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "159905842611-lkrio3k8n5efjut6po3t8slup615qjgm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "159905842611-o6ng3i2tjicdou5m0fuok867dv7ajuh8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "vn.memozen.boost"
+              }
+            }
+          ]
         }
       }
     }
